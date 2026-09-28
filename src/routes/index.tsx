@@ -53,7 +53,7 @@ function Index() {
           </Button>
           <div className="flex items-start gap-2.5">
             <Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-            <div className="text-sm leading-snug"><p className="font-semibold text-secondary-foreground">{names[notice][0]}</p><p className="text-primary">{names[notice][1]}</p></div>
+            <div className="text-sm leading-snug"><p className="font-semibold text-secondary-foreground">{names[notice]![0]}</p><p className="text-primary">{names[notice]![1]}</p></div>
           </div>
         </div>
       )}
