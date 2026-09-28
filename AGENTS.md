@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Keep the supplied Kutanga reference page as a single content route at `/`; its source markup lives in `src/reference-content.html` and its design tokens and generated utilities live in `src/styles.css` to preserve the exact visual treatment.
