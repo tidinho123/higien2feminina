@@ -1,0 +1,3 @@
+- [ ] Configurar a publicação da página na Netlify.
+- [ ] Incluir todas as fotos usadas pela página na publicação da Netlify.
+- [ ] Conferir preços, links, pixel e imagens após as alterações.
