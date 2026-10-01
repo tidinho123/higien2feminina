@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 Keep the supplied Kutanga reference page as a single content route at `/`; its source markup lives in `src/reference-content.html` and its design tokens and generated utilities live in `src/styles.css` to preserve the exact visual treatment.
+Use the Netlify Nitro preset and mirror the referenced Lovable images into Netlify's publish directory at build time, so the same page and image URLs work on both hosts without duplicating binaries in source control.
