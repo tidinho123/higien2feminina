@@ -1,3 +1,5 @@
 - [x] Configurar a publicação da página na Netlify.
 - [x] Incluir todas as fotos usadas pela página na publicação da Netlify.
 - [x] Conferir preços, links, pixel e imagens após as alterações.
+- [ ] Adicionar a nova foto à secção “Ninguém vê. Ninguém fala.”
+- [ ] Confirmar que a nova foto é incluída na publicação da Netlify.
