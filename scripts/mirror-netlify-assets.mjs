@@ -14,7 +14,7 @@ for (const assetPath of assetPaths) {
   if (!response.ok || !response.headers.get("content-type")?.startsWith("image/")) {
     throw new Error(`Could not fetch page image ${assetPath} (HTTP ${response.status}).`);
   }
-  const destination = join("dist", assetPath.slice(1));
+  const destination = join("dist/client", assetPath.slice(1));
   await mkdir(dirname(destination), { recursive: true });
   await writeFile(destination, Buffer.from(await response.arrayBuffer()));
   console.log(`Included ${assetPath}`);
