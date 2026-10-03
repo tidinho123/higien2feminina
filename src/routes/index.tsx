@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Clock3 } from "lucide-react";
 import content from "../reference-content.html?raw";
 
@@ -17,7 +17,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function Index() {
+// The timer re-renders every second; keeping it isolated stops it from
+// touching the page content (FAQ items, images) on each tick.
+function CountdownBar() {
   const [seconds, setSeconds] = useState(47 * 60 + 8);
 
   useEffect(() => {
@@ -28,15 +30,25 @@ function Index() {
   const time = `${Math.floor(seconds / 60).toString().padStart(2, "0")}:${(seconds % 60).toString().padStart(2, "0")}`;
 
   return (
-    <main>
-      <div className="sticky top-0 z-50 bg-forest text-forest-foreground">
-        <div className="mx-auto flex max-w-3xl items-center justify-center gap-2 px-4 py-2.5 text-[13px]">
-          <Clock3 aria-hidden="true" className="h-3.5 w-3.5 opacity-70" />
-          <span className="opacity-80">Acesso limitado · Só para hoje ·</span>
-          <span className="font-bold text-gold">{time} restantes</span>
-        </div>
+    <div className="sticky top-0 z-50 bg-forest text-forest-foreground">
+      <div className="mx-auto flex max-w-3xl items-center justify-center gap-2 px-4 py-2.5 text-[13px]">
+        <Clock3 aria-hidden="true" className="h-3.5 w-3.5 opacity-70" />
+        <span className="opacity-80">Acesso limitado · Só para hoje ·</span>
+        <span className="font-bold text-gold" suppressHydrationWarning>{time} restantes</span>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </main>
+    </div>
+  );
+}
+
+const PageContent = memo(function PageContent() {
+  return <div dangerouslySetInnerHTML={{ __html: content }} suppressHydrationWarning />;
+});
+
+function Index() {
+  return (
+    <div>
+      <CountdownBar />
+      <PageContent />
+    </div>
   );
 }
