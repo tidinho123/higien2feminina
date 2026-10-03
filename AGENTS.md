@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 
 Keep the supplied Kutanga reference page as a single content route at `/`; its source markup lives in `src/reference-content.html` and its design tokens and generated utilities live in `src/styles.css` to preserve the exact visual treatment.
-Netlify serves a pre-rendered static copy from dist/client (build:netlify pre-renders "/" and mirrors Lovable images) because the build always targets Workers.
+Netlify serves a pre-rendered, script-free static copy from dist/client (build:netlify pre-renders "/", strips app scripts except the Meta Pixel, adds a vanilla countdown, and mirrors Lovable images) because the build targets Workers and client re-rendering misbehaved there.
